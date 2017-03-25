@@ -1,15 +1,15 @@
 CREATE TABLE `enderecos` (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	rua VARCHAR(50) NOT NULL, 
+	rua VARCHAR(255) NOT NULL, 
 	numero INT UNSIGNED NOT NULL, 
-	complemento VARCHAR(50), 
+	complemento VARCHAR(255), 
 	cep VARCHAR(9) NOT NULL
 );
 
 CREATE TABLE `pessoas` (
 	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	nome VARCHAR(50) NOT NULL, 
-	sobrenome VARCHAR(50) NOT NULL, 
+	nome VARCHAR(255) NOT NULL, 
+	sobrenome VARCHAR(255) NOT NULL, 
 	data_nascimento DATE NOT NULL,
 	endereco_id INT UNSIGNED NULL,
 	FOREIGN KEY (endereco_id) REFERENCES enderecos(id)

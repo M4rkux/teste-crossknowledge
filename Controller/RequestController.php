@@ -15,7 +15,7 @@ class RequestController {
 		foreach ($pessoas as $pessoa) {
 			$pessoa->jsonSerialize();
 		}
-		$json = json_encode(["code" => 200, "message" => $pessoas]);
+		$json = json_encode(["code" => 200, "data" => $pessoas]);
 		return $json;
 	}
 
@@ -27,7 +27,7 @@ class RequestController {
 			$pessoa->jsonSerialize();
 		}
 		
-		$json = json_encode(["code" => 200, "message" => $pessoa]);
+		$json = json_encode(["code" => 200, "data" => $pessoa]);
 		return $json;
 	}
 
@@ -37,7 +37,7 @@ class RequestController {
 		if ($endereco) {
 			$endereco->jsonSerialize();	
 		}
-		$json = json_encode(["code" => 200, "message" => $endereco]);
+		$json = json_encode(["code" => 200, "data" => $endereco]);
 		return $json;
 	}
 
@@ -51,7 +51,7 @@ class RequestController {
 			$pessoa->setEndereco($endereco);
 			if ($pessoaService->inserirPessoa($pessoa)) {
 				$pessoa->jsonSerialize();
-				return json_encode(["code" => 200, "message" => $pessoa]);
+				return json_encode(["code" => 200, "data" => $pessoa]);
 			} else {
 				return json_encode(["code" => 500, "message" => "Ocorreu um erro."]);
 			}
@@ -73,7 +73,7 @@ class RequestController {
 		if ($endereco && $pessoa) {
 			$pessoa->setEndereco($endereco);
 			$pessoa->jsonSerialize();
-			return json_encode(["code" => 200, "message" => $pessoa]);
+			return json_encode(["code" => 200, "data" => $pessoa]);
 		} else {
 			return json_encode(["code" => 500, "message" => "Ocorreu um erro."]);
 		}
@@ -97,7 +97,7 @@ class RequestController {
 		}
 
 		if ($resultPessoa && $resultEndereco) {
-			return json_encode(["code" => 200, "message" => "Dados deletados com sucesso!"]);
+			return json_encode(["code" => 200, "data" => "Dados deletados com sucesso!"]);
 		} else {
 			return json_encode(["code" => 500, "message" => "Ocorreu um erro."]);
 		}

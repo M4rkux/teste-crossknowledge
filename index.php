@@ -2,6 +2,10 @@
 
 require_once("autoload.php");
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, PUT, DELETE, GET');
+
+
 use Controller\RequestController;
 
 $method = $_SERVER['REQUEST_METHOD'];
